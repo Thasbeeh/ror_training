@@ -1,0 +1,24 @@
+<% if @article.errors.any? %>
+	<h2>The following errors prevented the article from being saved</h2>
+	<ul>
+		<% @article.errors.full_messages.each do |error_msg| %>
+			<li><%= error_msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+ <!-- data: { turbo: false } -->
+<%= form_with(model: @article, local: true) do |form| %>
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

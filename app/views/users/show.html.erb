@@ -10,4 +10,6 @@
 
 <%= render 'articles/article', obj: @users %>
 
+<%= link_to 'Log out', logout_path, method: :delete %>
+
 <%= will_paginate @users %>

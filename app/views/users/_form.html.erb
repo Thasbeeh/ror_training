@@ -1,0 +1,29 @@
+<% if @user.errors.any? %>
+  <h2>The following errors prevented the <%= @user.class.name.downcase %> article from being saved</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |error_msg| %>
+      <li><%= error_msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+ <!-- data: { turbo: false } -->
+<%= form_with(model: @user, local: true, data: { turbo: false }) do |form| %>
+  <div>
+    <%= form.label :username, style: "display: block" %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit 'Sign up'  %>
+  </div>
+<% end %>

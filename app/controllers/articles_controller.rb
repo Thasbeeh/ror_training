@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = User.find(4)
     if @article.save
       flash[:notice] = "Article was created successfully"
       redirect_to @article

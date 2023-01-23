@@ -2,4 +2,12 @@
 
 <%= gravatar_for @user, size: 200 %>
 
-<%= render 'articles/article' %>
+<div>
+	<%= link_to "Edit your profile", edit_user_path(@user) %>
+</div>
+
+<%= will_paginate @users %>
+
+<%= render 'articles/article', obj: @users %>
+
+<%= will_paginate @users %>

@@ -8,10 +8,12 @@
 	</thead>
 
 	<tbody>
-		<% @articles.each do |article| %>
+		<% obj.each do |article| %>
 			<tr>
 				<td> </td> <td> </td> <td> </td>
-				<td>by <%= article.user.username if article.user %> </td>
+				<% if article.user %>
+				<td>by <%= link_to article.user.username, user_path(article.user) %> </td>
+				<% end %>
 			</tr>
 			<tr>
 				<td> <%= article.title %> </td>
